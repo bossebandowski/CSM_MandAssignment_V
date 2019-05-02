@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------------
+	TODO
+--------------------------------------------------------------------------------------
+															Book Page			DONE
+	Input handler																X
+	Parser																		X
+	Compiler																	X
+	Create Symbol List															X
+	Input handler lattice specification 										X
+		(compare formalmethods.dk)
+	Create instrumented program graph						187ff				_
+		include set X of implicit dependencies
+	Implement reference monitor semantics					190					_
+		comment: no idea what this BS is all about
+	Implement functions sec and sec2						194ff				_
+	Static security analysis
+		iterate over program graph and check every edge
+		for security violations. If any detected, print
+		'not secure', else print 'secure'
+		
+...and that's it motherfucker
+--------------------------------------------------------------------------------------
+	Funtion responsibilities
+--------------------------------------------------------------------------------------
+	Name			Description
+	Compiler		The main function. To run the program, navigate to the /src folder
+					and execute the command 'java Compiler'. If you make changes, 
+					remember to recompile with 'javac *.java' before execution.
+					handles input and output makes function calls
+	CompilerXxx		All other functions with the prefix 'Compiler' are ANTLR-generated
+					and not to be touched
+	Parse			simply iterates through the program tree and checks for syntax
+					errors. Doesn't really do much
+	Compiler		creates a standard program graph and generates the symbol list
+	PG				PG = program graph. Members of this class contain all information
+					to output a program graph, including
+		Node		and
+		Edge		instances.
+	Symbol			instances make up the PG's symbol list (just a list of all variable
+					names with a user-defined security class for each var
+					
